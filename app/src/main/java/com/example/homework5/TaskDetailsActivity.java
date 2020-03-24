@@ -55,7 +55,13 @@ public class TaskDetailsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 2){
             if (resultCode == RESULT_OK){
-                task = (Task)data.getSerializableExtra("newTask");
+                task = (Task)data.getSerializableExtra("reEditTask");
+                title.setText(task.title);
+                description.setText(task.description);
+                checkBox.setChecked(task.isDone);
+                SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+                startDate.setText(format.format(task.startDate));
+                deadLine.setText(format.format(task.deadline));
             }else if (resultCode == RESULT_CANCELED){
                 Toast.makeText(this, "Task edit is canceled", Toast.LENGTH_SHORT).show();
             }

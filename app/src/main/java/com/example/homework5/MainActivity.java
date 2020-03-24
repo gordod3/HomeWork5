@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements TaskClickListener
                 adapter.data.get(number).isDone = task.isDone;
                 adapter.data.get(number).title = task.title;
                 adapter.data.get(number).description = task.description;
+                adapter.notifyDataSetChanged();
 //                adapter.data.get(number);
 //                adapter.data.remove(number);
 //                adapter.addTask(task);

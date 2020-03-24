@@ -84,7 +84,7 @@ public class EditTask extends AppCompatActivity {
                     task.description = description.getText().toString();
                     task.startDate = taskStartDate;
                     task.deadline = taskDeadline;
-                    intent.putExtra("NewTask", task);
+                    intent.putExtra("reEditTask", task);
                     setResult(RESULT_OK, intent);
                     finish();
                 break;
