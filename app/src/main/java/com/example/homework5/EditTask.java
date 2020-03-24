@@ -3,6 +3,7 @@ package com.example.homework5;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,7 +34,7 @@ public class EditTask extends AppCompatActivity {
         description = findViewById(R.id.edit_description);
         deadlineDate = findViewById(R.id.edit_deadLineText);
         startDate = findViewById(R.id.edit_startDateText);
-        Task task = (Task) getIntent().getSerializableExtra("task");
+        Task task = (Task) getIntent().getSerializableExtra("editTask");
         checkBox.setChecked(task.isDone);
         title.setText(task.title);
         description.setText(task.description);
@@ -67,15 +69,27 @@ public class EditTask extends AppCompatActivity {
                     picker.show();
                 break;
                 case R.id.edit_save:
-                    Task task = (Task) getIntent().getSerializableExtra("task");
+                    if (title.getText().toString().equals("")){
+                        Toast.makeText(this, "Edit task title", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (description.getText().toString().equals("")){
+                        Toast.makeText(this, "Edit task description", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    Intent intent = new Intent();
+                    Task task = (Task) getIntent().getSerializableExtra("editTask");
                     task.isDone = checkBox.isChecked();
                     task.title = title.getText().toString();
                     task.description = description.getText().toString();
                     task.startDate = taskStartDate;
                     task.deadline = taskDeadline;
+                    intent.putExtra("NewTask", task);
+                    setResult(RESULT_OK, intent);
                     finish();
                 break;
                 case R.id.edit_cancel:
+                    setResult(RESULT_CANCELED);
                     finish();
                 break;
         }
