@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaskDetailsActivity">
+
+    <TextView
+        android:id="@+id/details_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="Title"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="35sp"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/details_description"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="8dp"
+        android:text="Description"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_title" />
+
+    <TextView
+        android:id="@+id/details_start_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dd.MM.YYYY"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/details_description"
+        app:layout_constraintTop_toBottomOf="@+id/details_description" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" - "
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/details_start_date"
+        app:layout_constraintStart_toEndOf="@+id/details_start_date"
+        app:layout_constraintTop_toTopOf="@+id/details_start_date" />
+
+    <TextView
+        android:id="@+id/details_deadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dd.MM.YYYY"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/details_description" />
+
+    <CheckBox
+        android:id="@+id/details_checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="editTask"
+        android:text="Edit"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_checkBox" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

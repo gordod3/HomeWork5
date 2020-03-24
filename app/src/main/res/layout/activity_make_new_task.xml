@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MakeNewTask">
+    <EditText
+        android:id="@+id/task_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter this title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/task_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter this description"
+        app:layout_constraintTop_toBottomOf="@+id/task_title" />
+
+    <TextView
+        android:id="@+id/task_deadLineText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Press button to enter deadline=>"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/task_description"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/task_choseDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chose date"
+        android:onClick="taskAction"
+        app:layout_constraintBottom_toBottomOf="@+id/task_deadLineText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/task_deadLineText"
+        app:layout_constraintTop_toTopOf="@+id/task_deadLineText" />
+
+    <Button
+        android:id="@+id/task_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="taskAction"
+        android:text="SAVE"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/task_cancel"
+        app:layout_constraintTop_toBottomOf="@+id/task_choseDate" />
+
+    <Button
+        android:id="@+id/task_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="taskAction"
+        android:text="CANCEL"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/task_save"
+        app:layout_constraintTop_toBottomOf="@+id/task_choseDate" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
